@@ -48,7 +48,7 @@
       <!-- <router-view></router-view> -->
     </v-content>
     <v-footer color="indigo">
-      <span class="white--text">&copy; It's my page</span>
+      <span class="white--text">&copy; {{copyRightDate}}</span>
     </v-footer>
   </v-app>
 </template>
@@ -61,6 +61,7 @@ export default {
     //
   },
   data: () => ({
+    copyRightDate: new Date().getFullYear(),
     drawer: null
   }),
   props: {}

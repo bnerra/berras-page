@@ -11,6 +11,7 @@
               <v-btn
                 outline
                 v-on:click="downloadResume"
+                target="_blank"
                 >Download Resume
               </v-btn>
             </div>
@@ -98,32 +99,41 @@
 </template>
 
 <script>
-  import AWS from 'aws-sdk';
+import axios from 'axios'
 
-  export default {
-    data: () => ({
-      accessKeyId: '',
-      secretAccessKey: ''
-    }),
-    methods: {
-      downloadResume: function () {
-        AWS.config.update({accessKeyId: this.accessKeyId, secretAccessKey: this.secretAccessKey})
-        var params = {
-          Bucket: "bnerra.com",
-          Key: "NBerraResume2018.docx"
-        };
-        var s3 = new AWS.S3();
-        s3.getObject(params, function(err, data) {
-          if (err) {
-            alert('Error downloading file');
-            console.log(err, err.stack);
-          }else {
-            console.log(data);
-          }
-        })
-      }
+export default {
+  data: () => ({
+  }),
+  methods: {
+    downloadResume: function () {
+      //TODO: Set env var for prod and dev api calls
+      axios({
+        // url: 'http://localhost:8081/api/s3',
+        url: 'https://i2wd7xn5sc.execute-api.us-east-1.amazonaws.com/dev/api/s3',
+        method: 'GET',
+        // responseType: 'blob'
+        // responesType: 'arraybuffer',
+        // headers: {
+          // 'Content-Type': 'application/json',
+          // 'Accept': '*/*',
+          // 'Content-Type': 'application/octet-stream',
+        // }
+      }).then((response) => {
+        console.log(response);
+        const pdfData = "data:application/pdf;base64," + response.data;
+        const link = document.createElement('a');
+        link.href=pdfData;
+        link.setAttribute('download', 'NBerraResume.pdf');
+        document.body.appendChild(link);
+        link.click();
+        link.parentNode.removeChild(link);
+      }).catch((error) => {
+        //TODO: Error Handling
+        console.log(error);
+      })
     }
   }
+}
 </script>
 
 <style scoped>
