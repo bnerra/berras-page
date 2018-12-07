@@ -6,46 +6,31 @@
         <span class="font-weight-light">PAGE</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-toolbar-items>
-        <v-divider vertical></v-divider>
-        <v-btn :to="{name: 'home'}"
-          flat exact
-        >
-          <span>Home</span>
+      <v-toolbar-items class="hidden-sm-and-down">
+        <v-btn v-for="item in menu"
+                :key="item.icon"
+                :to="item.link"
+                 flat
+                 exact
+          ><span>{{ item.title }}</span>
         </v-btn>
-        <v-divider inset vertical></v-divider>
-        <v-btn :to="{name: 'about'}"
-          flat exact
-        >
-          <span>About</span>
-        </v-btn>
-        <v-divider inset vertical></v-divider>
-        <v-btn :to="{name: 'resume'}"
-          flat exact
-        >
-          <span>Resume</span>
-        </v-btn>
-        <v-divider inset vertical></v-divider>
-        <v-btn :to="{name: 'blog'}"
-          flat exact
-        >
-          <span>Blog</span>
-        </v-btn>
-        <v-divider inset vertical></v-divider>
-        <v-btn :to="{name: 'contact'}"
-          flat exact
-        >
-          <span>Contact</span>
-        </v-btn>
-        <v-divider vertical></v-divider>
       </v-toolbar-items>
+      <v-menu class="hidden-md-and-up">
+        <v-toolbar-side-icon slot="activator"></v-toolbar-side-icon>
+        <v-list>
+          <v-list-tile v-for="item in menu" :key="item.icon" :to="item.link">
+            <v-list-tile-content>
+              <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+            </v-list-tile-content>
+          </v-list-tile>
+        </v-list>
+      </v-menu>
     </v-toolbar>
 
     <v-content>
       <v-container fluid fill-height>
         <router-view></router-view>
       </v-container>
-      <!-- <router-view></router-view> -->
     </v-content>
     <v-footer color="indigo">
       <span class="white--text">&copy; {{copyRightDate}}</span>
@@ -62,7 +47,14 @@ export default {
   },
   data: () => ({
     copyRightDate: new Date().getFullYear(),
-    drawer: null
+    drawer: null,
+    menu: [
+      { icon: 'home', title: 'Home', link: '/' },
+      { icon: 'info', title: 'About', link: 'about' },
+      { icon: 'ballot', title: 'Resume', link: 'resume' },
+      { icon: 'chat', title: 'Blog', link: 'blog' },
+      { icon: 'phone', title: 'Contact', link: 'contact' }
+    ]
   }),
   props: {}
 }
