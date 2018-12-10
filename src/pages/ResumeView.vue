@@ -25,33 +25,37 @@
       </v-flex>
       <v-flex>
         <v-layout row wrap>
-          <v-flex xs4><h2>Technologies</h2></v-flex>
-          <v-flex xs4>
-            <h4>DAY-TO-DAY COMFORT</h4>
-            <ul>
-              <li>JavaScript/jQuery</li>
-              <li>HTML5/CSS3</li>
-              <li>Sass/LESS</li>
-              <li>Java</li>
-              <li>VueJS</li>
-            </ul>
-          </v-flex>
-          <v-flex xs4>
-            <h4>EXPERIENCE WITH</h4>
-            <ul>
-              <li>NodeJS</li>
-              <li>ReactJS</li>
-              <li>React/Redux</li>
-              <li>MongoDB</li>
-              <li>Amazon Web Services</li>
-            </ul>
+          <v-flex md4><h2>Technologies</h2></v-flex>
+          <v-flex md4>
+            <v-layout>
+              <v-flex md6>
+                <h4>DAY-TO-DAY COMFORT</h4>
+                <ul>
+                  <li>JavaScript/jQuery</li>
+                  <li>HTML5/CSS3</li>
+                  <li>Sass/LESS</li>
+                  <li>Java</li>
+                  <li>VueJS</li>
+                </ul>
+              </v-flex>
+              <v-flex md6>
+                <h4>EXPERIENCE WITH</h4>
+                <ul>
+                  <li>NodeJS</li>
+                  <li>ReactJS</li>
+                  <li>React/Redux</li>
+                  <li>MongoDB</li>
+                  <li>Amazon Web Services</li>
+                </ul>
+              </v-flex>
+            </v-layout>
           </v-flex>
         </v-layout>
       </v-flex>
       <v-flex>
         <v-layout row wrap>
-          <v-flex xs4><h2>Work Experience</h2></v-flex>
-          <v-flex xs8>
+          <v-flex md4><h2>Work Experience</h2></v-flex>
+          <v-flex md8>
             <v-card-title primary-title>
               <div>
                 <div class="subheading font-weight-bold">OWNER, DEVELOPER</div>
@@ -85,8 +89,8 @@
       </v-flex>
       <v-flex>
         <v-layout row wrap>
-          <v-flex xs4><h2>Education</h2></v-flex>
-          <v-flex xs8>
+          <v-flex md4><h2>Education</h2></v-flex>
+          <v-flex md8>
             <div>
               <p class="font-weight-bold">B.S. SECONDARY EDUCATION, MATHEMATICS</p>
               <p>University of Missouri, Columbia, MO, August 2009 – May 2014</p>
@@ -110,14 +114,7 @@ export default {
       axios({
         // url: 'http://localhost:8081/api/s3',
         url: 'https://i2wd7xn5sc.execute-api.us-east-1.amazonaws.com/dev/api/s3',
-        method: 'GET',
-        // responseType: 'blob'
-        // responesType: 'arraybuffer',
-        // headers: {
-          // 'Content-Type': 'application/json',
-          // 'Accept': '*/*',
-          // 'Content-Type': 'application/octet-stream',
-        // }
+        method: 'GET'
       }).then((response) => {
         console.log(response);
         const pdfData = "data:application/pdf;base64," + response.data;

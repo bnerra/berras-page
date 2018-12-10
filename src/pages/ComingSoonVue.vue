@@ -1,23 +1,59 @@
 <template>
-  <div id="background">
+  <!-- <progressive-background src="https://unsplash.it/1920/1080?image=10"> -->
+  <!-- <div class="wrapper">
+    <h2>As a background</h2>
+    <progressive-background src="../assets/forest_in_the_fog.jpg" placeholder="../assets/forest_in_the_fog.jpg"/>> -->
+  <div class="background">
     <div id="message">
       <h1>Coming Soon</h1>
     </div>
   </div>
+  <!-- </div> -->
 </template>
 
-<style scoped>
-body, html {
-  height: 100%;
+<script>
+
+export default {
+  name: 'background',
+  components: {
+    //
+  },
+  data: () => ({
+  }),
+  props: {},
+  mounted() {
+    // this.loadImage()
+  },
+  methods: {
+    loadImage: () => {
+      // alert('Hello World');
+      const objects = document.getElementsByClassName('background');
+      Array.from(objects).map((item) => {
+        const img = new Image();
+        img.src = item.dataset.src;
+        img.onload = () => {
+          item.classList.remove('background');
+          return item.nodeName === 'IMG' ?
+          item.src = item.dataset.src :
+          item.style.backgroundImage = `url(${item.dataset.src})`;
+        }
+      })
+    }
+  }
 }
-#background {
-  background: url("../assets/forest_in_the_fog.jpg");
+</script>
+
+
+<style scoped>
+/* body, html {
+  height: 100%;
+} */
+.background {
+  background-image: url("../assets/forest_in_the_fog.jpg");
   height:100%;
   width: 100%;
   position: relative;
 
-  background-position: center;
-  background-repeat: no-repeat;
   background-size: cover;
 }
 
@@ -44,5 +80,11 @@ h1 {
   font-family: 'Courier New', Courier, monospace;
   font-weight: 400;
   vertical-align: middle;
+}
+
+@media only screen and (max-width: 600px) {
+  h1 {
+    font-size: 6vh;
+  }
 }
 </style>
