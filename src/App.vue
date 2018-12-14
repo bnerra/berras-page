@@ -1,6 +1,7 @@
 <template>
   <v-app>
-    <v-toolbar>
+    <v-layout align-center justify-center>
+    <v-toolbar floating>
       <v-toolbar-items class="hidden-sm-and-down">
         <v-btn flat v-scroll-to="'#about'">About</v-btn>
         <v-btn flat v-scroll-to="'#experience'">Experience</v-btn>
@@ -9,7 +10,7 @@
         <v-btn flat v-scroll-to="'#skills'">Skills</v-btn>
         <v-btn flat v-scroll-to="'#contact'">Contact</v-btn>
       </v-toolbar-items>
-      <v-menu class="hidden-md-and-up">
+      <v-menu class="mobile-menu hidden-md-and-up">
         <v-toolbar-side-icon slot="activator"></v-toolbar-side-icon>
         <v-list>
           <v-list-tile v-for="item in menu" :key="item.icon" @click="$vuetify.goTo(item.link)">
@@ -20,6 +21,7 @@
         </v-list>
       </v-menu>
     </v-toolbar>
+    </v-layout>
 
     <v-content>
       <router-view></router-view> 
@@ -32,28 +34,7 @@
         <!-- </v-btn> -->
 
       </div>
-      <!-- <div class="col-sm-5 social">
-          <ul>
-              <li>
-                  <a href="https://github.com/" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
-              </li>
-              <li>
-                  <a href="https://stackoverflow.com/" target="_blank"><i class="fa fa-stack-overflow" aria-hidden="true"></i></a>
-              </li>
-              <li>
-                  <a href="https://linkedin.com/" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-              </li>
-              <li>
-                  <a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-              </li>
-              <li>
-                  <a href="https://twitter.com/" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-              </li>
-              <li>
-                  <a href="https://plus.google.com/" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
-              </li>
-          </ul>
-      </div> -->
+      <!-- TODO: Add social media icons -->
     </v-footer>
   </v-app>
 </template>
@@ -85,40 +66,15 @@ export default {
   }
 }
 </script>
-  <!-- <v-app>
-    <v-toolbar app color="indigo">
-      <v-toolbar-title class="headline text-uppercase">
-        <span>Berra's</span>
-        <span class="font-weight-light">PAGE</span>
-      </v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-toolbar-items class="hidden-sm-and-down">
-        <v-btn v-for="item in menu"
-                :key="item.icon"
-                :to="item.link"
-                 flat
-                 exact
-          ><span>{{ item.title }}</span>
-        </v-btn>
-      </v-toolbar-items>
-      <v-menu class="hidden-md-and-up">
-        <v-toolbar-side-icon slot="activator"></v-toolbar-side-icon>
-        <v-list>
-          <v-list-tile v-for="item in menu" :key="item.icon" :to="item.link">
-            <v-list-tile-content>
-              <v-list-tile-title>{{ item.title }}</v-list-tile-title>
-            </v-list-tile-content>
-          </v-list-tile>
-        </v-list>
-      </v-menu>
-    </v-toolbar>
 
-    <v-content>
-      <v-container fluid fill-height>
-        <router-view></router-view>
-      </v-container>
-    </v-content>
-    <v-footer color="indigo">
-      <span class="white--text">&copy; {{copyRightDate}}</span>
-    </v-footer>
-  </v-app> -->
+<style >
+  .v-toolbar{
+    width: fit-content;
+  }
+
+  @media only screen and (max-width: 960px){
+    .layout{
+      align-self: flex-end;
+    }
+  }
+</style>
