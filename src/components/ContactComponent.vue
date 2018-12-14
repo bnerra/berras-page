@@ -1,6 +1,8 @@
 <template>
   <div id="contact">
-    <h2>Get in Touch</h2>
+    <v-layout row wrap>
+      <v-flex md12 class="text-xs-center"><h2 center>Contact Me</h2></v-flex>
+    </v-layout>
     <div id="contact-form">
         <form method="POST" action="https://formspree.io/email@email.com">
             <input type="hidden" name="_subject" value="Contact request from personal website" />

@@ -9,8 +9,8 @@
     <div id="lead-overlay"></div>
 
     <div id="lead-down">
-      <span>
-        <v-icon>keyboard_arrow_down</v-icon>
+      <span id="down-icon">
+        <v-icon href="#" v-scroll-to="'#about'">keyboard_arrow_down</v-icon>
       </span>
     </div>
 
@@ -26,5 +26,7 @@
 </script>
 
 <style>
-
+#down-icon {
+  cursor: pointer;
+}
 </style>
