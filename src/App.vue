@@ -2,13 +2,11 @@
   <v-app>
     <v-layout align-center justify-center>
     <v-toolbar floating>
-      <v-toolbar-items class="hidden-sm-and-down">
-        <v-btn flat v-scroll-to="'#about'">About</v-btn>
-        <v-btn flat v-scroll-to="'#experience'">Experience</v-btn>
-        <v-btn flat v-scroll-to="'#education'">Education</v-btn>
-        <v-btn flat v-scroll-to="'#projects'">Projects</v-btn>
-        <v-btn flat v-scroll-to="'#skills'">Skills</v-btn>
-        <v-btn flat v-scroll-to="'#contact'">Contact</v-btn>
+      <v-toolbar-items class="hidden-sm-and-down" >
+        <v-btn v-for="item in menu" :key="item.icon"
+          flat
+          @click="$vuetify.goTo(item.link)"
+        >{{ item.title }}</v-btn>
       </v-toolbar-items>
       <v-menu class="mobile-menu hidden-md-and-up">
         <v-toolbar-side-icon slot="activator"></v-toolbar-side-icon>

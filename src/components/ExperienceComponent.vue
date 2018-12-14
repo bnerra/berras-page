@@ -3,29 +3,18 @@
     <v-layout row wrap>
       <v-flex md12 class="text-xs-center"><h2 center>Experience</h2></v-flex>
     </v-layout>
-    <div id="experience-timeline">
-      <div data-date="March 2018 - November 2018">
-        <h3>Bayer</h3>
-        <h4>Consultant, Developer</h4>
-        <p>
-          Collaborated with a team of developers to provide enhancements and bug fixes for Regional Brand sites. Implemented enhancements and bug fixes to site components using VueJs, Java and AEM. Optimized NodeJS Elasticsearch Query Builder to refine and improve site search results. Utilize Puppeteer PDF Generator to generate PDF files from site pages to be viewed, printed or emailed. Configure Narconex HTTP Collector to crawl websites and index data with Elasticsearch.
-        </p>
-      </div>
-      <div data-date="November 2017 - March 2018">
-        <h3>Daugherty Business Solutions</h3>
-        <h4>Developer</h4>
-        <p>
-          Assisted with the development of an internal project application, Enterprise Application Framework, that provides Daugherty employees quick access to frequently used links and documents. Contributed to the front-end design using VueJS and Vuetify as well as the back end Express server using NodeJS.
-        </p>
-      </div>
-      <div data-date="August 2017 - May 2015">
-        <h3>Aleutians East Borough School District</h3>
-        <h4>Mathematics Teacher</h4>
-        <p>
-          Planned and instructed mathematics curriculum for grades 7 – 12. Implemented age-appropriate mathematics curriculum to develop student critical thinking and problem solving skills. Assessed student progress daily. Utilized instructional methods and materials most suitable for meeting defined objectives and standards.
-        </p>
-      </div>
-    </div>
+    <v-timeline>
+      <v-timeline-item v-for="job in jobs" :key="job" color="grey darken-1">
+        <span class="title" slot="opposite">{{ job.date }}</span>
+        <v-card class="elevation-2">
+          <v-card-title class="job-titles">
+            <h3 class="headline font-weight-bold">{{ job.role }}</h3>
+            <div class="job-employer"><div class="underline font-weight-medium">{{ job.employer }}</div><span class="job-location">, {{ job.location }}</span></div>
+            <v-card-text>{{ job.description }}</v-card-text>
+          </v-card-title>
+        </v-card>
+      </v-timeline-item>
+    </v-timeline>
   </div>
 </template>
 
@@ -33,6 +22,40 @@
   export default {
     name: 'ExperienceComponent',
     data: () => ({
+      jobs: [
+        {employer: 'Bayer', location: 'St.Louis, MO', role: 'Consultant, Developer', date: 'March 2018 - November 2018', description: 'Collaborated with a team of developers to provide enhancements and bug fixes for Regional Brand sites. Implemented enhancements and bug fixes to site components using VueJs, Java and AEM. Optimized NodeJS Elasticsearch Query Builder to refine and improve site search results. Utilize Puppeteer PDF Generator to generate PDF files from site pages to be viewed, printed or emailed. Configure Narconex HTTP Collector to crawl websites and index data with Elasticsearch.'},
+        {employer: 'Daugherty Business Solutions', location: 'St.Louis, MO', role: 'Developer', date: 'November 2017 - March 2018', description: 'Assisted with the development of an internal project application, Enterprise Application Framework, that provides Daugherty employees quick access to frequently used links and documents. Contributed to the front-end design using VueJS and Vuetify as well as the back end Express server using NodeJS.'},
+        {employer: 'Aleutians East Borough School District', location: 'King Cove, AK', role: 'Mathematics Teacher', date: 'August 2014 - May 2105', description: 'Planned and instructed mathematics curriculum for grades 7 – 12. Implemented age-appropriate mathematics curriculum to develop student critical thinking and problem solving skills. Assessed student progress daily. Utilized instructional methods and materials most suitable for meeting defined objectives and standards.'}
+      ]
     })
   }
 </script>
+
+<style>
+  .headline{
+    font-size: 22px !important;
+  }
+  .job-employer{
+    display: inline-flex;
+  }
+  .job-location{
+    /* margin-left: 10px; */
+    margin-top: 3px;
+  }
+  .job-titles {
+    display:block;
+  }
+  .underline {
+    text-decoration: underline;
+    /* margin-top: 4px; */
+    font-size: 15px;
+  }
+  .v-subheader{
+    padding: 0;
+    font-size: 16px;
+  }
+  .v-card__text{
+    padding-left: 0;
+  }
+  
+</style>
