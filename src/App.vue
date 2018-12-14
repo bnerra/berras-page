@@ -9,6 +9,16 @@
         <v-btn flat v-scroll-to="'#skills'">Skills</v-btn>
         <v-btn flat v-scroll-to="'#contact'">Contact</v-btn>
       </v-toolbar-items>
+      <v-menu class="hidden-md-and-up">
+        <v-toolbar-side-icon slot="activator"></v-toolbar-side-icon>
+        <v-list>
+          <v-list-tile v-for="item in menu" :key="item.icon" @click="$vuetify.goTo(item.link)">
+            <v-list-tile-content>
+              <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+            </v-list-tile-content>
+          </v-list-tile>
+        </v-list>
+      </v-menu>
     </v-toolbar>
 
     <v-content>
@@ -18,8 +28,7 @@
     <v-footer color="indigo">
       <span class="white--text">&copy; {{copyRightDate}}</span>
       <div center>
-        <!-- <v-btn outline fab dark extra-small color="red"> -->
-          <v-icon dark @click="scrollToTop">keyboard_arrow_up</v-icon>
+          <v-icon dark @click="$vuetify.goTo(0,0)">keyboard_arrow_up</v-icon>
         <!-- </v-btn> -->
 
       </div>
@@ -60,11 +69,12 @@ export default {
     copyRightDate: new Date().getFullYear(),
     drawer: null,
     menu: [
-      { icon: 'home', title: 'Home', link: '/' },
-      { icon: 'info', title: 'About', link: 'about' },
-      { icon: 'ballot', title: 'Resume', link: 'resume' },
-      { icon: 'chat', title: 'Blog', link: 'blog' },
-      { icon: 'phone', title: 'Contact', link: 'contact' }
+      { icon: 'info', title: 'About', link: '#about' },
+      { icon: 'ballot', title: 'Experience', link: '#experience' },
+      { icon: 'home', title: 'Education', link: '#education' },
+      { icon: 'chat', title: 'Projects', link: '#projects' },
+      { icon: 'create', title: 'Skills', link: '#skills'},
+      { icon: 'phone', title: 'Contact', link: '#contact' }
     ]
   }),
   props: {},
