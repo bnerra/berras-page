@@ -1,26 +1,26 @@
 <template>
   <v-container>
-    <div id="lead">
+    <section id="lead">
       <lead-component/>
-    </div>
-    <div id="about">
+    </section>
+    <section id="about">
       <about-component/>
-    </div>
-    <div id="experience">
+    </section>
+    <section id="experience">
       <experience-component/>
-    </div>
-    <div id="education">
+    </section>
+    <section id="education">
       <education-component/>
-    </div>
-    <div id="projects">
+    </section>
+    <section id="projects">
       <projects-component/>
-    </div>
-    <div id="skills">
+    </section>
+    <section id="skills">
       <skills-component/>
-    </div>
-    <div id="contact">
+    </section>
+    <section id="contact">
       <contact-component/>
-    </div>
+    </section>
   </v-container>
 </template>
 

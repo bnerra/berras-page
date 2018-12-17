@@ -3,18 +3,20 @@
     <v-layout row wrap>
       <v-flex md12 class="text-xs-center"><h2 center>Experience</h2></v-flex>
     </v-layout>
-    <v-timeline>
-      <v-timeline-item v-for="job in jobs" :key="job" color="grey darken-1">
-        <span class="title" slot="opposite">{{ job.date }}</span>
-        <v-card class="elevation-2">
-          <v-card-title class="job-titles">
-            <h3 class="headline font-weight-bold">{{ job.role }}</h3>
-            <div class="job-employer"><div class="underline font-weight-medium">{{ job.employer }}</div><span class="job-location">, {{ job.location }}</span></div>
-            <v-card-text>{{ job.description }}</v-card-text>
-          </v-card-title>
-        </v-card>
-      </v-timeline-item>
-    </v-timeline>
+    <v-container>
+      <v-timeline>
+        <v-timeline-item v-for="job in jobs" :key="job" color="grey darken-1" icon="star">
+          <span class="title job-date" slot="opposite">{{ job.date }}</span>
+          <v-card class="elevation-2">
+            <v-card-title class="job-titles">
+              <h3 class="headline font-weight-bold">{{ job.role }}</h3>
+              <div class="job-employer"><div class="underline font-weight-medium">{{ job.employer }}</div><span class="job-location">, {{ job.location }}</span></div>
+              <v-card-text>{{ job.description }}</v-card-text>
+            </v-card-title>
+          </v-card>
+        </v-timeline-item>
+      </v-timeline>
+    </v-container>
   </div>
 </template>
 

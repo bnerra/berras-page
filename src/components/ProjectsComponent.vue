@@ -1,20 +1,30 @@
 <template>
   <div id="projects">
-    <h2 class="heading">Projects</h2>
-    <v-flex xs12 sm6 lg3 offset-sm3>
-        <v-card>
-            <v-img
-                :src="require('@/static/images/b-logo.svg')"
-            ></v-img>
-            <v-card-title primary-title>
-                <h3>bnerra.com</h3>
-                <p>
-                    This was a startup site I created in my free time. Particularly, the primary intention was to showcase a dynamic resume. Additionally, this is a catalyst to further build my web development skills.
-                </p>
-                <a target="_blank" href="http://bnerra.com">View Project</a>
-            </v-card-title>
+    <h2 class="heading text-xs-center">Projects</h2>
+    <v-container>
+        <v-flex xs12 offset-md2>
+            <v-card>
+                <!-- TODO: for screen size <640? vertical cards -->
+            <v-layout row>
+                <v-flex xs6>
+                    <v-card-media class="project-image"
+                        :src="require('@/static/images/b-logo.svg')"
+                    ></v-card-media>
+                </v-flex>
+                <v-flex xs6>
+                    <v-card-title primary-title>
+                        <h3>bnerra.com</h3>
+                        <p>
+                            This was a startup site I created in my free time. Particularly, the primary intention was to showcase a dynamic resume. Additionally, this is a catalyst to further build my web development skills.
+                        </p>
+                        <a target="_blank" href="http://bnerra.com">View Project</a>
+                    </v-card-title>
+                </v-flex>
+            </v-layout>
         </v-card>
     </v-flex>
+    </v-container>
+    
   </div>
 </template>
 
@@ -26,3 +36,6 @@
     })
   }
 </script>
+
+<style scoped>
+</style>
