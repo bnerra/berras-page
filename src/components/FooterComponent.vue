@@ -1,8 +1,8 @@
 <template>
-  <v-footer color="indigo">
-      <span class="white--text">&copy; {{copyRightDate}}</span>
+  <v-footer>
+      <span>&copy; {{copyRightDate}}</span>
       <div center>
-          <v-icon dark @click="$vuetify.goTo(0,0)">keyboard_arrow_up</v-icon>
+          <v-icon @click="$vuetify.goTo(0,0)">keyboard_arrow_up</v-icon>
       </div>
       <!-- TODO: Add social media icons -->
     </v-footer>

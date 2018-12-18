@@ -53,3 +53,10 @@
     }
   }
 </script>
+
+<style>
+  #contact{
+    background-color: #3498DB;
+  }
+  
+</style>

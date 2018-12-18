@@ -1,10 +1,11 @@
 <template>
   <v-layout align-center justify-center>
     <v-toolbar floating>
-      <v-toolbar-items class="hidden-sm-and-down" >
+      <v-toolbar-items class="hidden-sm-and-down menu-buttons" >
         <v-btn v-for="item in menu" :key="item.icon"
           flat
           @click="$vuetify.goTo(item.link)"
+          color="#3498DB"
         >{{ item.title }}</v-btn>
       </v-toolbar-items>
       <v-menu class="mobile-menu hidden-md-and-up">
@@ -39,3 +40,7 @@ export default {
   })
 }
 </script>
+
+<style>
+
+</style>

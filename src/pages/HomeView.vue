@@ -1,8 +1,8 @@
 <template>
   <v-container>
-    <section id="lead">
+    <span id="lead">
       <lead-component/>
-    </section>
+    </span>
     <section id="about">
       <about-component/>
     </section>

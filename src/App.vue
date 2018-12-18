@@ -41,12 +41,20 @@ export default {
 </script>
 
 <style >
+.section-content h2 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
   .container{
     padding: 0;
     margin: none;
   }
   .v-toolbar{
     width: fit-content;
+  }
+  .section-content{
+    margin-left: 5%;
+    margin-right: 5%;
   }
   @media only screen and (max-width: 960px){
     .layout{
