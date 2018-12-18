@@ -1,17 +1,21 @@
 <template>
   <div id="about">
-    <div class="container">
+    <v-container fluid>
       <v-layout row wrap>
-        <v-flex md-4>
-          <h2>About Me</h2>
+        <v-flex xs12 md4>
+          <!-- <v-card tile flat height="100%"> -->
+            <h3 class="headline text-xs-center">About Me</h3>
+          <!-- </v-card> -->
         </v-flex>
-        <v-flex md-8>
-          <p>
-            Result-oriented consultant focused on designing appropriate software solutions to business needs and managing business application development and rollout. Strong collaborative ability coupled with “hands-on” IT experience, and the ability to communicate to both technical and business stakeholders.
-          </p>
+        <v-flex xs12 md8>
+          <!-- <v-card tile flat> -->
+            <p>
+              Result-oriented consultant focused on designing appropriate software solutions to business needs and managing business application development and rollout. Strong collaborative ability coupled with “hands-on” IT experience, and the ability to communicate to both technical and business stakeholders.
+            </p>
+          <!-- </v-card> -->
         </v-flex>
       </v-layout>
-    </div>
+    </v-container>
   </div>
 </template>
 

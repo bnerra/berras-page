@@ -12,7 +12,8 @@ import EducationComponent from './components/EducationComponent.vue'
 import ProjectsComponent from './components/ProjectsComponent.vue'
 import SkillsComponent from './components/SkillsComponent.vue'
 import ContactComponent from './components/ContactComponent.vue'
-// import VueProgressiveImage from 'vue-progressive-image'
+import ToolbarComponent from './components/ToolbarComponent.vue'
+import FooterCompoennt from './components/FooterComponent.vue'
 
 Vue.config.productionTip = false
 
@@ -39,6 +40,8 @@ Vue.component('education-component', EducationComponent);
 Vue.component('projects-component', ProjectsComponent);
 Vue.component('skills-component', SkillsComponent);
 Vue.component('contact-component', ContactComponent);
+Vue.component('toolbar-component', ToolbarComponent);
+Vue.component('footer-component', FooterCompoennt);
 
 new Vue({
   router,

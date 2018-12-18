@@ -8,7 +8,7 @@
         <v-card-title primary-title>
           <v-layout row wrap>
             <v-flex xs12 class="headline">University of Missouri - Columbia</v-flex>
-            <v-flex xs12 id="education-date">Augus 2009 - May 2014</v-flex>
+            <v-flex xs12 id="education-date">August 2009 - May 2014</v-flex>
             <v-flex xs12 class="grey--text">B.S. Secondary Mathematics Education</v-flex>
           </v-layout>
         </v-card-title>

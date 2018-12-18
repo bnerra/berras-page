@@ -21,6 +21,7 @@
     <section id="contact">
       <contact-component/>
     </section>
+    <footer-component></footer-component>
   </v-container>
 </template>
 

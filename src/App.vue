@@ -1,40 +1,15 @@
 <template>
-  <v-app>
-    <v-layout align-center justify-center>
-    <v-toolbar floating>
-      <v-toolbar-items class="hidden-sm-and-down" >
-        <v-btn v-for="item in menu" :key="item.icon"
-          flat
-          @click="$vuetify.goTo(item.link)"
-        >{{ item.title }}</v-btn>
-      </v-toolbar-items>
-      <v-menu class="mobile-menu hidden-md-and-up">
-        <v-toolbar-side-icon slot="activator"></v-toolbar-side-icon>
-        <v-list>
-          <v-list-tile v-for="item in menu" :key="item.icon" @click="$vuetify.goTo(item.link)">
-            <v-list-tile-content>
-              <v-list-tile-title>{{ item.title }}</v-list-tile-title>
-            </v-list-tile-content>
-          </v-list-tile>
-        </v-list>
-      </v-menu>
-    </v-toolbar>
-    </v-layout>
-
-    <v-content>
-      <router-view></router-view> 
-    </v-content>
-
-    <v-footer color="indigo">
-      <span class="white--text">&copy; {{copyRightDate}}</span>
-      <div center>
-          <v-icon dark @click="$vuetify.goTo(0,0)">keyboard_arrow_up</v-icon>
-        <!-- </v-btn> -->
-
-      </div>
-      <!-- TODO: Add social media icons -->
-    </v-footer>
-  </v-app>
+  <div id="app">
+    <v-app>
+      <v-content>
+        <v-container fluid ma-0 pa-0 fill-height>
+          <v-layout row wrap>
+            <router-view></router-view>
+          </v-layout>
+        </v-container>
+      </v-content>
+    </v-app>
+  </div>
 </template>
 
 <script>
@@ -66,13 +41,26 @@ export default {
 </script>
 
 <style >
+  .container{
+    padding: 0;
+    margin: none;
+  }
   .v-toolbar{
     width: fit-content;
   }
-
   @media only screen and (max-width: 960px){
     .layout{
       align-self: flex-end;
+    }
+  }
+  @media only screen and (min-width: 1264px) {
+    .container {
+      max-width: fit-content;
+    }
+  }
+  @media only screen and (min-width: 960px) {
+    .container {
+      max-width: fit-content;
     }
   }
 </style>
