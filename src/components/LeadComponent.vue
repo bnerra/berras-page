@@ -138,6 +138,7 @@ import axios from 'axios'
 @media only screen and (max-width: 992px){
   #lead-content h1 {
     font-size: 3em!important;
+    padding-top: 18%;
   }
 }
 </style>
