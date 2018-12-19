@@ -2,7 +2,7 @@
   <div id="experience">
     <div class="section-content">
       <v-layout row wrap>
-        <v-flex md12 class="text-xs-center"><h2 center>Experience</h2></v-flex>
+        <v-flex md12 class="text-xs-center"><h2 class="subheading" center>Experience</h2></v-flex>
       </v-layout>
       <v-container>
         <v-timeline>
@@ -38,6 +38,12 @@
 <style>
 #experience{
   background-color:#F2F2F5;
+  font-family: 'Lato', sans-serif!important;
+  padding-top: 1%;
+  padding-bottom: 2%;
+}
+#experience h2 {
+  font-size: 2em!important;
 }
   .headline{
     font-size: 22px !important;

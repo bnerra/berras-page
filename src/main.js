@@ -4,6 +4,8 @@ import './plugins/vuetify'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import GithubBox from 'vue-material-design-icons/GithubBox.vue'
+import LinkedinBox from 'vue-material-design-icons/LinkedinBox.vue'
 import ProgressiveImage from './components/ProgressiveImage.vue'
 import LeadComponent from './components/LeadComponent.vue'
 import AboutComponent from './components/AboutComponent.vue'
@@ -14,6 +16,10 @@ import SkillsComponent from './components/SkillsComponent.vue'
 import ContactComponent from './components/ContactComponent.vue'
 import ToolbarComponent from './components/ToolbarComponent.vue'
 import FooterCompoennt from './components/FooterComponent.vue'
+
+
+Vue.component('github-box', GithubBox);
+Vue.component('linkedin-box', LinkedinBox);
 
 Vue.config.productionTip = false
 

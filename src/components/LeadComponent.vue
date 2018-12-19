@@ -9,10 +9,7 @@
       </div>
       <div id="lead-down">
         <span id="down-icon">
-          <v-icon href="#" >keyboard_arrow_down</v-icon>
-          <!-- <v-btn color="white" round fab small flat outline v-scroll-to="'#about'" active-class="">
-            <v-icon href="#" >keyboard_arrow_down</v-icon>
-          </v-btn> -->
+          <v-icon href="#" @click="$vuetify.goTo('#about')">keyboard_arrow_down</v-icon>
         </span>
       </div>
     </div>
@@ -104,7 +101,7 @@ import axios from 'axios'
   z-index: 1000;
 }
 #lead-content h1 {
-  padding-top: 5%;
+  padding-top: 4%;
   color: whitesmoke;
   text-transform: uppercase;
   font-weight: bold;

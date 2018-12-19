@@ -1,21 +1,23 @@
 <template>
   <div id="contact">
     <v-layout row wrap>
-      <v-flex md12 class="text-xs-center"><h2 center>Contact Me</h2></v-flex>
+      <v-flex md12 class="text-xs-center"><h2 class="subheading">Contact Me</h2></v-flex>
     </v-layout>
     <v-layout row wrap>
-      <v-flex xs10 lg6 offset-md3 offset-sm1>
+      <v-flex xs10 offset-xs1 md8 offset-md2 class="text-xs-center">
         <v-form ref="emailForm" v-model="valid" lazy-validation>
           <v-text-field
             v-model="emailAddress"
             :rules="emailRules"
             label="Your email"
+            dark
             required
           ></v-text-field>
           <v-textarea
             v-model="emailMessage"
             :rules="messageRules"
             label="Your message"
+            dark
             required
           ></v-textarea>
           <v-btn
@@ -57,6 +59,52 @@
 <style>
   #contact{
     background-color: #3498DB;
+    font-family: 'Lato', sans-serif!important;
+    padding-top: 1%;
+    padding-bottom: 2%;
   }
-  
+  #contact h2 {
+    font-size: 2em!important;
+  }
+  .v-form input{
+    background: #1d6fa5;
+    padding: 10px;
+    border-radius: 4px;
+    border: none;
+    /* margin-bottom: 10px; */
+    color: white!important;
+    transition: .5s ease all;
+    
+  }
+  .v-form textarea{
+    background: #1d6fa5;
+    padding: 10px;
+    border-radius: 4px;
+    border: none;
+    margin-bottom: 10px;
+    color: white!important;
+    transition: .5s ease all;
+  }
+  .v-form button {
+    display: block;
+    width: 100%;
+    top: 0px;
+    /* left: 0px; */
+    background: #fff;
+    margin-left: 0;
+    border-radius: 4px;
+    padding: 5px 10px;
+    border: none;
+    color: #3498db;
+    font-weight: 700;
+    /* box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); */
+    transition: .5s ease all;
+  }
+
+  .v-text-field > .v-input__control > .v-input__slot:before {
+    width: 0;
+  }
+  .v-text-field > .v-input__control > .v-input__slot:after{
+    width: 0;
+  }
 </style>

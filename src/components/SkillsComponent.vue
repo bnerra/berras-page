@@ -2,7 +2,7 @@
   <div id="skills">
     <v-flex>
         <v-layout row wrap>
-          <v-flex md12 class="text-xs-center"><h2 center>Skills</h2></v-flex>
+          <v-flex md12 class="text-xs-center"><h2 class="subheading">Skills</h2></v-flex>
         </v-layout>
         <v-layout row wrap>
           <!-- TODO: Good for mobile, when large, spread chips out -->
@@ -22,3 +22,14 @@
     })
   }
 </script>
+
+<style >
+  #skills {
+    font-family: 'Lato', sans-serif!important;
+    padding-top: 1%;
+    padding-bottom: 3%;
+  }
+  #skills h2 {
+    font-size: 2em!important;
+  }
+</style>

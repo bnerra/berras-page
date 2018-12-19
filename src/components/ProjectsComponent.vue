@@ -1,7 +1,7 @@
 <template>
   <div id="projects">
     <div class="section-content">
-      <h2 class="heading text-xs-center">Projects</h2>
+      <h2 class="subheading text-xs-center">Projects</h2>
       <v-container>
         <v-flex xs12 offset-md2>
           <v-card>
@@ -35,5 +35,11 @@ export default {
 <style>
 #projects {
   background-color: #f2f2f5;
+  font-family: 'Lato', sans-serif!important;
+  padding-top: 1%;
+  padding-bottom: 3%;
+}
+#projects h2 {
+  font-size: 2em!important;
 }
 </style>
