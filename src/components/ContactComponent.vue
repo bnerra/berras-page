@@ -5,7 +5,14 @@
     </v-layout>
     <v-layout row wrap>
       <v-flex xs10 offset-xs1 md8 offset-md2 class="text-xs-center">
-        <v-form ref="emailForm" v-model="valid" lazy-validation>
+        <v-form ref="emailForm" v-model="valid">
+          <v-text-field
+            v-model="senderName"
+            :rules="senderNameRules"
+            label="Your name"
+            dark
+            required
+          ></v-text-field>
           <v-text-field
             v-model="emailAddress"
             :rules="emailRules"
@@ -25,7 +32,7 @@
             :disabled="!valid"
             @click="submitEmail"
             required
-          >submit</v-btn>
+          >Submit</v-btn>
         </v-form>
       </v-flex>
     </v-layout>
@@ -33,24 +40,41 @@
 </template>
 
 <script>
+  import axios from 'axios'
+
   export default {
     name: 'ContactComponent',
     data: () => ({
       valid: true,
       emailAddress: '',
       emailRules: [
-        v => !!v || 'Email address is required'
+        v => !!v || 'Please provide a valid email address'
       ],
       emailMessage: '',
       messageRules: [
         v => !!v || 'Email message is required'
+      ],
+      senderName: '',
+      senderNameRules: [
+        v => !!v || 'Please enter your name'
       ]
     }),
     methods: {
+      clearForm() {
+        this.$refs.emailForm.reset();
+      },
       submitEmail() {
-        if (this.$refs.emailForm.validate()) {
-          alert(this.emailMessage);
-        }
+        const formData = new FormData();
+        formData.append("senderName", this.senderName)
+        formData.append("emailAddress", this.emailAddress);
+        formData.append("emailMessage", this.emailMessage);
+        axios.post("https://i2wd7xn5sc.execute-api.us-east-1.amazonaws.com/dev/api/email", formData)
+          .then((response) => {
+            console.log(response.data)
+            this.clearForm();
+          }).catch((error) => {
+            console.log(error);
+          })
       }
     }
   }
@@ -68,7 +92,7 @@
   }
   .v-form input{
     background: #1d6fa5;
-    padding: 10px;
+    padding: 15px;
     border-radius: 4px;
     border: none;
     /* margin-bottom: 10px; */
@@ -89,7 +113,6 @@
     display: block;
     width: 100%;
     top: 0px;
-    /* left: 0px; */
     background: #fff;
     margin-left: 0;
     border-radius: 4px;
@@ -97,7 +120,6 @@
     border: none;
     color: #3498db;
     font-weight: 700;
-    /* box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24); */
     transition: .5s ease all;
   }
 
@@ -106,5 +128,8 @@
   }
   .v-text-field > .v-input__control > .v-input__slot:after{
     width: 0;
+  }
+  .v-messages {
+    font-size: 0px;
   }
 </style>
