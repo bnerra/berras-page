@@ -14,6 +14,12 @@
             required
           ></v-text-field>
           <v-text-field
+            v-model="email"
+            label="email"
+            dark
+            class="email-field"
+          ></v-text-field>
+          <v-text-field
             v-model="emailAddress"
             :rules="emailRules"
             label="Your email"
@@ -46,6 +52,7 @@
     name: 'ContactComponent',
     data: () => ({
       valid: true,
+      email: '',
       emailAddress: '',
       emailRules: [
         v => !!v || 'Please provide a valid email address'
@@ -65,7 +72,8 @@
       },
       submitEmail() {
         const formData = new FormData();
-        formData.append("senderName", this.senderName)
+        formData.append("email", this.email);
+        formData.append("senderName", this.senderName);
         formData.append("emailAddress", this.emailAddress);
         formData.append("emailMessage", this.emailMessage);
         axios.post("https://i2wd7xn5sc.execute-api.us-east-1.amazonaws.com/dev/api/email", formData)
@@ -131,5 +139,8 @@
   }
   .v-messages {
     font-size: 0px;
+  }
+  .email-field{
+    display: none;
   }
 </style>
