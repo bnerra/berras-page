@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueScrollTo from 'vue-scrollto'
 import './plugins/vuetify'
+import '../node_modules/timeline-vuejs/dist/timeline-vuejs.css'
 import App from './App.vue'
 import router from './router'
 import store from './store'
@@ -16,6 +17,7 @@ import SkillsComponent from './components/SkillsComponent.vue'
 import ContactComponent from './components/ContactComponent.vue'
 import ToolbarComponent from './components/ToolbarComponent.vue'
 import FooterCompoennt from './components/FooterComponent.vue'
+import Timeline from './components/TimelineComponent/Timeline.vue'
 
 
 Vue.component('github-box', GithubBox);
@@ -48,6 +50,7 @@ Vue.component('skills-component', SkillsComponent);
 Vue.component('contact-component', ContactComponent);
 Vue.component('toolbar-component', ToolbarComponent);
 Vue.component('footer-component', FooterCompoennt);
+Vue.component('timeline', Timeline);
 
 new Vue({
   router,

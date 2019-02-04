@@ -8,7 +8,7 @@
             <!-- TODO: for screen size <640? vertical cards -->
             <v-layout row>
               <v-flex xs6>
-                <v-card-media class="project-image" :src="require('@/static/images/b-logo.svg')"></v-card-media>
+                <v-img class="project-image" :src="require('@/static/images/b-logo.svg')"></v-img>
               </v-flex>
               <v-flex xs6>
                 <v-card-title primary-title>

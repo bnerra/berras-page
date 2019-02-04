@@ -5,37 +5,80 @@
         <v-flex md12 class="text-xs-center"><h2 class="subheading" center>Experience</h2></v-flex>
       </v-layout>
       <v-container>
-        <v-timeline>
-          <v-timeline-item v-for="job in jobs" :key="job" color="grey darken-1" icon="star">
-            <span class="title job-date" slot="opposite">{{ job.date }}</span>
-            <v-card class="elevation-2">
-              <v-card-title class="job-titles">
-                <h3 class="headline font-weight-bold">{{ job.role }}</h3>
-                <div class="job-employer"><div class="underline font-weight-medium">{{ job.employer }}</div><span class="job-location">, {{ job.location }}</span></div>
-                <v-card-text>{{ job.description }}</v-card-text>
-              </v-card-title>
-            </v-card>
-          </v-timeline-item>
-        </v-timeline>
+        <v-layout>
+          <v-flex xs12 offset-xs3>
+            <timeline
+              :timeline-items="dataTimeline"
+              :unique-year="false"
+              order="dec"
+            />
+            <!-- <v-timeline align-top dense>
+              <v-timeline-item v-for="job in jobs" :key="job" color="grey darken-1" icon="star">
+                <span class="title job-date" slot="opposite">{{ job.date }}</span>
+                <v-card class="elevation-2">
+                  <v-card-title class="job-titles">
+                    <h3 class="headline font-weight-bold">{{ job.role }}</h3>
+                    <div class="job-employer"><div class="underline font-weight-medium">{{ job.employer }}</div><span class="job-location">, {{ job.location }}</span></div>
+                    <v-card-text>{{ job.description }}</v-card-text>
+                  </v-card-title>
+                </v-card>
+              </v-timeline-item>
+            </v-timeline> -->
+          </v-flex>
+        </v-layout>
       </v-container>
     </div>
   </div>
 </template>
 
 <script>
+// import Timeline from 'timeline-vuejs'
   export default {
     name: 'ExperienceComponent',
+    // components: {
+    //   Timeline
+    // },
     data: () => ({
       jobs: [
         {employer: 'Bayer', location: 'St.Louis, MO', role: 'Consultant, Developer', date: 'March 2018 - November 2018', description: 'Collaborated with a team of developers to provide enhancements and bug fixes for Regional Brand sites. Implemented enhancements and bug fixes to site components using VueJs, Java and AEM. Optimized NodeJS Elasticsearch Query Builder to refine and improve site search results. Utilize Puppeteer PDF Generator to generate PDF files from site pages to be viewed, printed or emailed. Configure Narconex HTTP Collector to crawl websites and index data with Elasticsearch.'},
         {employer: 'Daugherty Business Solutions', location: 'St.Louis, MO', role: 'Developer', date: 'November 2017 - March 2018', description: 'Assisted with the development of an internal project application, Enterprise Application Framework, that provides Daugherty employees quick access to frequently used links and documents. Contributed to the front-end design using VueJS and Vuetify as well as the back end Express server using NodeJS.'},
-        {employer: 'Aleutians East Borough School District', location: 'King Cove, AK', role: 'Mathematics Teacher', date: 'August 2014 - May 2105', description: 'Planned and instructed mathematics curriculum for grades 7 – 12. Implemented age-appropriate mathematics curriculum to develop student critical thinking and problem solving skills. Assessed student progress daily. Utilized instructional methods and materials most suitable for meeting defined objectives and standards.'}
-      ]
+        {employer: 'Aleutians East Borough School District', location: 'King Cove, AK', role: 'Mathematics Teacher', date: 'August 2014 - May 2015', description: 'Planned and instructed mathematics curriculum for grades 7 – 12. Implemented age-appropriate mathematics curriculum to develop student critical thinking and problem solving skills. Assessed student progress daily. Utilized instructional methods and materials most suitable for meeting defined objectives and standards.'}
+      ],
+      dataTimeline: [
+      {
+        from: new Date(2018, 2),
+        to: new Date(2018, 10),
+        title: "Bayer",
+        location: "St. Louis, MO",
+        role: "Consultant, Developer",
+        description:
+          "Collaborated with a team of developers to provide enhancements and bug fixes for Regional Brand sites. Implemented enhancements and bug fixes to site components using VueJs, Java and AEM. Optimized NodeJS Elasticsearch Query Builder to refine and improve site search results. Utilize Puppeteer PDF Generator to generate PDF files from site pages to be viewed, printed or emailed. Configure Narconex HTTP Collector to crawl websites and index data with Elasticsearch."
+      },
+      {
+        from: new Date(2017, 10),
+        to: new Date(2018, 2),
+        title: "Daugherty Business Solutions",
+        location: "St. Louis, MO",
+        role: "Developer",
+        description:
+          "Assisted with the development of an internal project application, Enterprise Application Framework, that provides Daugherty employees quick access to frequently used links and documents. Contributed to the front-end design using VueJS and Vuetify as well as the back end Express server using NodeJS."
+      },
+      {
+        from: new Date(2014, 7),
+        to: new Date(2015, 4),
+        title: "Aleutians East Borough School District",
+        location: "King Cove, AK",
+        role: "Mathematics Teacher",
+        description:
+          "Planned and instructed mathematics curriculum for grades 7 – 12. Implemented age-appropriate mathematics curriculum to develop student critical thinking and problem solving skills. Assessed student progress daily. Utilized instructional methods and materials most suitable for meeting defined objectives and standards."
+      }
+    ]
     })
   }
 </script>
 
 <style>
+
 #experience{
   background-color:#F2F2F5;
   font-family: 'Lato', sans-serif!important;
@@ -70,5 +113,4 @@
   .v-card__text{
     padding-left: 0;
   }
-  
 </style>
